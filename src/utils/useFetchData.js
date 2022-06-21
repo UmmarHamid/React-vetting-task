@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { setBlogs, setBlogsError } from "../reducers/blogsSlice";
+import { setBlogs, setIsPending, setError } from "../reducers/blogsSlice";
 
 const useFetchData = (url) => {
   const dispatch = useDispatch();
@@ -19,12 +19,14 @@ const useFetchData = (url) => {
         return res.data;
       })
       .then((data) => {
+        dispatch(setIsPending(false));
         dispatch(setBlogs(data));
+        dispatch(setError(null));
       })
       .catch((err) => {
-        dispatch(setBlogsError(err.message));
+        dispatch(setError(err.message));
       });
-  }, [url]);
+  }, [dispatch, url]);
 
   return { data, isPending, error };
 };

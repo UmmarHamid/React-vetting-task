@@ -4,7 +4,7 @@ import BlogList from "./BlogList/BlogList";
 import Blog from "./Blog/Blog";
 import useFetchData from "../utils/useFetchData";
 
-export const API_URL = "https://jsonplaceholder.typicode.com/posts?_limit=10";
+const API_URL = "https://jsonplaceholder.typicode.com/posts?_limit=10";
 
 function App() {
   const { error, isPending, data: blogs } = useFetchData(API_URL);
@@ -20,12 +20,7 @@ function App() {
                 <BlogList error={error} blogs={blogs} isPending={isPending} />
               }
             ></Route>
-            <Route
-              path="/blog/:id"
-              element={
-                <Blog error={error} blogs={blogs} isPending={isPending} />
-              }
-            ></Route>
+            <Route path="/blog/:id" element={<Blog />}></Route>
           </Routes>
         </div>
       </div>

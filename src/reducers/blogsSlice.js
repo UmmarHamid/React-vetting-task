@@ -4,6 +4,12 @@ const initialState = {
   isPending: true,
   data: [],
   error: false,
+  currentBlog: {
+    id: null,
+    comments: [],
+    error: false,
+    isPending: true,
+  },
 };
 
 export const blogsSlice = createSlice({
@@ -11,17 +17,33 @@ export const blogsSlice = createSlice({
   initialState,
   reducers: {
     setBlogs: (state, action) => {
-      state.isPending = false;
       state.data = action.payload;
-      state.error = null;
     },
-    setBlogsError: (state, action) => {
-      state.isPending = false;
+    setIsPending: (state, action) => {
+      state.isPending = action.payload;
+    },
+    setError: (state, action) => {
       state.error = action.payload;
+    },
+    setCurrentBlog: (state, action) => {
+      state.currentBlog = action.payload;
+    },
+    setCommentsError: (state, action) => {
+      state.currentBlog.error = action.payload;
+    },
+    setCommentsPending: (state, action) => {
+      state.currentBlog.isPending = action.payload;
     },
   },
 });
 
-export const { setBlogs, setBlogsError } = blogsSlice.actions;
+export const {
+  setBlogs,
+  setIsPending,
+  setError,
+  setCurrentBlog,
+  setCommentsError,
+  setCommentsPending,
+} = blogsSlice.actions;
 
 export default blogsSlice.reducer;

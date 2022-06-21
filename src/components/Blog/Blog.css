@@ -1,4 +1,35 @@
-.back-link {
-  text-decoration: none;
-  color: #4c3a51;
+.blog-container {
+  display: flex;
+  flex-direction: column;
+}
+.blog {
+  padding: 40px 3vw 20px 3vw;
+}
+.blog__title {
+  font-size: 2em;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.blog__body {
+  font-size: 1.5em;
+}
+.blog__comments {
+  padding: 15px 3vw;
+  color: #4c565c;
+}
+.comment {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  background-color: #eff2f5;
+  border: 1px solid #d4dae1;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.comment__author,
+.comment__text {
+  margin: 5px 0;
+  overflow-wrap: break-word;
+}
+.comment__author {
+  color: black;
 }

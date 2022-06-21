@@ -1,0 +1,9 @@
+.back-link {
+  text-decoration: none;
+  color: #4c565c;
+  font-size: 1.3em;
+  align-self: flex-start;
+}
+.back-link:hover {
+  color: #ff7396;
+}
